@@ -1,33 +1,67 @@
-# Server Health Checker
+# Docker + GitHub Actions Project Template
 
-A simple web application to check if a server or website is online.
+A complete project template with a simple HTML frontend, Docker setup, and GitHub Actions CI/CD configured with a self-hosted runner.
+
+## Project Structure
+
+```
+├── .github/
+│   └── workflows/
+│       └── ci-cd.yml         # GitHub Actions workflow
+├── src/                      # Frontend source files
+│   ├── css/
+│   │   └── style.css         # CSS styles
+│   ├── js/
+│   │   └── main.js           # JavaScript code
+│   └── index.html            # Main HTML file
+├── Dockerfile                # Docker configuration
+├── docker-compose.yml        # Docker Compose configuration
+└── README.md                 # Project documentation
+```
 
 ## Features
 
-- Check if a website or IP address is online
-- Clean, responsive UI
-- Works with both domain names and IP addresses
-- Fast response time
+- Simple HTML/CSS/JS frontend
+- Dockerized environment using Nginx
+- GitHub Actions workflow for CI/CD using a self-hosted runner
 
-## How to Use
+## Getting Started
 
-1. Open `index.html` in any modern web browser
-2. Enter a website URL or IP address in the input field (e.g., `google.com` or `8.8.8.8`)
-3. Click the "Check Health" button or press Enter
-4. View the results indicating whether the server is online or offline
+### Prerequisites
 
-## Technical Details
+- Docker and Docker Compose installed
+- GitHub account with a self-hosted runner configured
 
-- Uses a CORS proxy (allorigins.win) to make cross-origin requests
-- Implements a fallback method using image loading for more accurate results
-- Sets timeouts to handle non-responsive servers
-- Pure HTML, CSS, and JavaScript (no dependencies required)
+### Local Development
 
-## Limitations
+1. Clone this repository:
+   ```
+   git clone <repository-url>
+   cd <repository-name>
+   ```
 
-- The CORS proxy may have rate limits
-- Some websites may block requests from proxies
-- For IP addresses, the check may not be 100% accurate due to browser security restrictions
+2. Start the development environment:
+   ```
+   docker-compose up -d
+   ```
+
+3. Access the website at http://localhost:8080
+
+4. Make changes to the files in the `src` directory - they will be automatically reflected thanks to the volume mapping.
+
+### CI/CD Pipeline
+
+The GitHub Actions workflow in `.github/workflows/ci-cd.yml` will:
+
+1. Build the Docker image
+2. Run basic tests (can be expanded)
+3. Deploy the application when pushed to main/master branch
+
+## Customizing
+
+- Modify the HTML/CSS/JS in the `src` directory
+- Update the Dockerfile if you need different dependencies
+- Adjust the GitHub Actions workflow for your specific deployment needs
 
 ## License
 
